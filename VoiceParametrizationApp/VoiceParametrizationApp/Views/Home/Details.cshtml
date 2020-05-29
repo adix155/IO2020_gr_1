@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "Parametry";
+}
+
+<!--Zrobić z tego formularz, powiązać z konkretnym nagraniem/rekordem przez ID-->
+<div class="modal fade" role="dialog" tabindex="-1" id="modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Potwierdź usunięcie</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Czy na pewno chcesz usunąć rekord?</p>
+            </div>
+            <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Anuluj</button><a class="btn btn-danger" role="button" href="/Home/Details">Usuń</a></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <!--X zamienić na ID nagrania z bazy-->
+                    <th colspan="2">Szczegóły dla nagrania numer X</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Imię i nazwisko</td>
+                    <td>Jan Kowalski</td>
+                </tr>
+                <tr>
+                    <td>Płeć</td>
+                    <td>Mężczyzna</td>
+                </tr>
+                <tr>
+                    <td>Wiek</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>CPP</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>H1H2</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HRF</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>NAQ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PSP</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>QOQ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MDQ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PS</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>RDS</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Skala RBH</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Plik z nagraniem</td>
+                    <td><a href="#">Pobierz</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--Tak samo jak z usunięciem, powiązać poprzez ID z rekordem. Zrobić formularz(?)-->
+<p class="text-center"><a href="/Home/Edit">Edytuj dane osobowe i skalę RBH</a></p>
+<p class="text-center"><a id="modal-popup" href="#">Usuń wpis</a></p>
+<hr>
+<div class="container"><img width="100%" src="~/assets/img/vpadb_file_no_10.png"></div>

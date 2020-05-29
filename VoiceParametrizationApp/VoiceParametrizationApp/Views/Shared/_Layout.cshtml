@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - Parametryzacja głosu</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />-->
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="~/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="~/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark navigation-clean">
+        <div class="container">
+            <a class="navbar-brand" href="#">Parametryzacja głosu</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                 id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Home/Add">Dodaj nagranie</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Home/Data">Tabela parametrów</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/Home/Index">Wyloguj się</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center"><img src="~/assets/img/seal.png" style="width: 150px;"></div>
+                </div>
+                <p class="copyright">
+                    Aplikacja do parametryzacji głosu&nbsp;<br>stworzona przez studentów drugiego roku kierunku Informatyka&nbsp;<br>Wydziału Zastosowań Informatyki i Matematyki&nbsp;<br>Szkoły Głównej Gospodarstwa Wiejskiego w Warszawie&nbsp;<br>w ramach
+                    przedmiotu Inżynieria Oprogramowania<br>
+                </p>
+                <p class="copyright">SGGW © 2020</p>
+            </div>
+        </footer>
+    </div>
+    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>-->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/modal.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

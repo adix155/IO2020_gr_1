@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "Data";
+}
+
+    <!--Trzeba jeszcze dodać export do CSV-->
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Opisy parametrów</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CPP</td>
+                        <td>Cepstral Peak Prominence<br></td>
+                    </tr>
+                    <tr>
+                        <td>H1H2</td>
+                        <td>The ratio of the first harmonic energy F0 (H1) to the second harmonic energy (H2)<br></td>
+                    </tr>
+                    <tr>
+                        <td>HRF</td>
+                        <td>Harmonic Richness Factor<br></td>
+                    </tr>
+                    <tr>
+                        <td>NAQ</td>
+                        <td>Normalized Amplitude Quotient<br></td>
+                    </tr>
+                    <tr>
+                        <td>PSP</td>
+                        <td>Parabolic Spectral Parameter<br></td>
+                    </tr>
+                    <tr>
+                        <td>QOQ</td>
+                        <td>Quasi Open Quotient<br></td>
+                    </tr>
+                    <tr>
+                        <td>MDQ</td>
+                        <td>Maxima Dispersion Quotient<br></td>
+                    </tr>
+                    <tr>
+                        <td>PS</td>
+                        <td>Peak Slope<br></td>
+                    </tr>
+                    <tr>
+                        <td>RDS</td>
+                        <td>Rd shape parameter of Liljencrants-Fant glottal model 1<br></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nagranie</th>
+                        <th>CPP</th>
+                        <th>H1H2</th>
+                        <th>HRF</th>
+                        <th>NAQ</th>
+                        <th>PSP</th>
+                        <th>QOQ</th>
+                        <th>MDQ</th>
+                        <th>PS</th>
+                        <th>RDS</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Tutaj pętla na iterację danych z bazy danych-->
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="/Home/Details">Szczegóły</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="/Home/Details">Szczegóły</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+

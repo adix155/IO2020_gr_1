@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Edytuj nagranie";
+}
+
+    <div class="contact-clean">
+        <!--Zrobić kontroler edytujacy dane (? albo zostawić Home i tam to zrobić)-->
+        <form method="post" asp-controller="Home" asp-action="Details">
+            <h2 class="text-center">Edytuj dane</h2>
+            <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Imię i nazwisko" value="Jan Kowalski"></div>
+            <div class="form-group"><input class="form-control" type="text" name="name" placeholder="RBH" value="Skala RBH"></div>
+            <div class="form-group"><button class="btn btn-info" type="submit">Zapisz</button><a class="btn btn-light" role="button" style="margin-left: 10px;" href="/Home/Details">Wróć</a></div>
+        </form>
+    </div>
+

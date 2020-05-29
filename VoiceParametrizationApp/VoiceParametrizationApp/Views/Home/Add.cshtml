@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Dodaj nagranie";
+}
+
+<!--Zaimplementować upload pliku na serwer, potem przekazywanie ścieżki nagrania do Octave-->
+    <div class="contact-clean">
+        <form method="post" asp-controller="Home" asp-action="Data">
+            <h2 class="text-center">Dodaj nagranie</h2>
+            <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Imię i nazwisko"></div>
+            <div class="form-group"><input class="form-control" type="number" placeholder="Wiek" step="1" min="1"></div>
+            <div class="form-group">
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-1" name="plec"><label class="form-check-label" for="formCheck-1">Kobieta</label></div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-2" name="plec"><label class="form-check-label" for="formCheck-2">Mężczyzna</label></div>
+            </div>
+            <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Skala RBH"></div>
+            <div class="form-group"><input type="file" accept="audio/*"></div>
+            <div class="form-group"><button class="btn btn-info" type="submit" role="button">Dodaj</button><a class="btn btn-light" role="button" style="margin-left: 10px;" href="/Home/Data">Wróć</a></div>
+        </form>
+    </div>
+
