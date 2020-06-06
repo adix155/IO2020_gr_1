@@ -2,7 +2,7 @@
 class DBController {
     private $connectionString = "mysql:host=localhost;dbname=voiceparametrization;charset=utf8";
     private $dbUsername = "root";
-    private $dbPassword = "";
+    private $dbPassword = "zaq1@WSX";
     public $dbConnection;
 
     function __construct() {
@@ -17,10 +17,10 @@ class DBController {
         return $result;
     }
 
-    public function addData($patientName, $patientSurname, $patientAge, $patientGender, $CPP, $H1H2, $HRF, $NAQ, $PSP, $QOQ, $MDQ, $PS, $RDS, $rbhScale, $recordingName, $plotName) {
-        $queryString = "INSERT INTO voiceparametrization.parameters () VALUES ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?";
+    public function addData($insertArray) {
+        $queryString = "INSERT INTO voiceparametrization.parameters (imie , nazwisko , plec , wiek , CPP , H1H2 , HRF , NAQ , PSP , QOQ , MDQ , PS , RDS , RBH , recording_name , amplitude_name) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
         $queryData = $this->dbConnection->prepare($queryString);
-        $queryData->execute(array($patientName, $patientSurname, $patientAge, $patientGender, $CPP, $H1H2, $HRF, $NAQ, $PSP, $QOQ, $MDQ, $PS, $RDS, $rbhScale, $recordingName, $plotName));
+        $queryData->execute($insertArray);
         return;
     }
 
@@ -46,6 +46,14 @@ class DBController {
         $queryData = $this->dbConnection->prepare($queryString);
         $queryData->execute(array($patientID));
         $result = $queryData->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getLastRecordingId() {
+        $queryString = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'parameters' AND table_schema = 'voiceparametrization'";
+        $queryData = $this->dbConnection->prepare($queryString);
+        $queryData->execute();
+        $result = $queryData->fetch();
         return $result;
     }
 }

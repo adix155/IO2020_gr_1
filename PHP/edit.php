@@ -53,7 +53,7 @@ $rowData = $db->readOne($sanitizedID);
             <?php if ($_SESSION["user_role"] === "Uprawniony"):?>
             <div class="form-group"><input class="form-control" type="text" name="patient_data" placeholder="Imię i nazwisko" value="<?=trim($rowData["imie"] . " " . $rowData["nazwisko"]);?>"></div>
             <?php endif;?>
-            <div class="form-group"><input class="form-control" type="text" name="RBH" placeholder="RBH" value="Skala RBH"></div>
+            <div class="form-group"><input class="form-control" type="text" name="RBH" placeholder="RBH" value=<?=$rowData["RBH"];?>></div>
             <div class="form-group"><button class="btn btn-info" type="submit" name="save_changes" role="button">Zapisz</button><a class="btn btn-light" role="button" style="margin-left: 10px;" href="details.php?id=<?=$rowData["pacjent_ID"];?>">Wróć</a></div>
         </form>
     </div>

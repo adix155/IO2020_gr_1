@@ -28,17 +28,18 @@
         </div>
     </nav>
     <div class="contact-clean">
-        <form method="post">
+        <form action="parameters.php" enctype="multipart/form-data" method="POST">
             <h2 class="text-center">Dodaj nagranie</h2>
             <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Imię i nazwisko"></div>
-            <div class="form-group"><input class="form-control" type="number" placeholder="Wiek" step="1" min="1"></div>
+            <div class="form-group"><input class="form-control" type="number" name="age" placeholder="Wiek" step="1" min="1"></div>
             <div class="form-group">
-                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-1" name="plec"><label class="form-check-label" for="formCheck-1">Kobieta</label></div>
-                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-2" name="plec"><label class="form-check-label" for="formCheck-2">Mężczyzna</label></div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="plec" value="Kobieta"><label class="form-check-label" for="formCheck-1">Kobieta</label></div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="plec" value="Mężczyzna"><label class="form-check-label" for="formCheck-2">Mężczyzna</label></div>
             </div>
-            <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Skala RBH"></div>
-            <div class="form-group"><input type="file" accept="audio/*"></div>
-            <div class="form-group"><a class="btn btn-info" role="button" href="data.php">Dodaj</a><a class="btn btn-light" role="button" style="margin-left: 10px;" href="data.php">Wróć</a></div>
+            <div class="form-group"><input class="form-control" type="text" name="RBH" placeholder="Skala RBH"></div>
+            <div class="form-group"><input type="file" name="recording" accept="audio/*"></div>
+            <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+            <div class="form-group"><button class="btn btn-info" role="button" type="submit">Dodaj</button><a class="btn btn-light" role="button" style="margin-left: 10px;" href="data.php">Wróć</a></div>
         </form>
     </div>
     <div class="footer-dark">

@@ -136,7 +136,7 @@ $rowData = $db->readOne($sanitizedID);
                     </tr>
                     <tr>
                         <td>Plik z nagraniem</td>
-                        <td><a href="./octave/recordings/rec_<?=$rowData["pacjent_ID"];?>.wav">Pobierz</a></td>
+                        <td><a href="./octave/recordings/rec_<?=$rowData["pacjent_ID"];?>.wav" download>Pobierz</a></td>
                     </tr>
                 </tbody>
             </table>
