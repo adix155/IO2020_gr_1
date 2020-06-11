@@ -14,15 +14,27 @@ include_once("DBController.php");
 
 $sanitizedID = filter_var($_GET["id"], FILTER_SANITIZE_NUMBER_INT);
 $db = new DBController();
-$rowData = $db->readOne($sanitizedID);
-?>
-<!DOCTYPE html>
-<html>
-
+EditScreen::displayScreen($_SESSION["user_role"],$sanitizedID,$db);
+/**
+* Klasa zawierająca kod html ekranu edycji danych pacjenta
+*/
+class EditScreen{
+ /**
+* Metoda służąca do wyświetlenia ekranu edycji danych pacjenta
+*
+* @param $userRole poziom dostępu aktualnie zalogowanego użytkownika
+* @param $id id pacjenta, którege szczegółowe dane mają zostać edytowane
+* @param $db odwołanie do obiektu klasy SBController
+* @see DBController
+*/
+    public static function displayScreen($userRole,$id,$db){
+    $rowData = $db->readOne($id);
+    echo'
+    <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Edytuj dane dla nagrania #<?=$rowData["pacjent_ID"];?> - Parametryzacja głosu</title>
+    <title>Edytuj dane dla nagrania #'.$rowData["pacjent_ID"].' - Parametryzacja głosu</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
@@ -37,24 +49,27 @@ $rowData = $db->readOne($sanitizedID);
         <div class="container"><a class="navbar-brand" href="#">Parametryzacja głosu</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <?php if ($_SESSION["user_role"] !== "Gość"):?>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="add.php">Dodaj nagranie</a></li>
-                    <?php endif;?>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="data.php">Tabela parametrów</a></li>
+                <ul class="nav navbar-nav ml-auto">';
+                if( $userRole!== "Gość"){
+                echo' <li class="nav-item" role="presentation"><a class="nav-link" href="add.php">Dodaj nagranie</a></li>';
+				}
+                echo'
+                <li class="nav-item" role="presentation"><a class="nav-link" href="data.php">Tabela parametrów</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Wyloguj się</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="contact-clean">
-        <form method="post" action="details.php?id=<?=$rowData["pacjent_ID"];?>">
+        <form method="post" action="details.php?id='.$rowData["pacjent_ID"].'">
             <h2 class="text-center">Edytuj dane</h2>
-            <?php if ($_SESSION["user_role"] === "Uprawniony"):?>
-            <div class="form-group"><input class="form-control" type="text" name="patient_data" placeholder="Imię i nazwisko" value="<?=trim($rowData["imie"] . " " . $rowData["nazwisko"]);?>"></div>
-            <?php endif;?>
-            <div class="form-group"><input class="form-control" type="text" name="RBH" placeholder="RBH" value=<?=$rowData["RBH"];?>></div>
-            <div class="form-group"><button class="btn btn-info" type="submit" name="save_changes" role="button">Zapisz</button><a class="btn btn-light" role="button" style="margin-left: 10px;" href="details.php?id=<?=$rowData["pacjent_ID"];?>">Wróć</a></div>
+                ';
+                if($userRole === "Uprawniony"){
+                    echo'<div class="form-group"><input class="form-control" type="text" name="patient_data" placeholder="Imię i nazwisko" value="'.trim($rowData["imie"] . " " . $rowData["nazwisko"]).'"></div>';    
+				}
+                echo'
+                <div class="form-group"><input class="form-control" type="text" name="RBH" placeholder="RBH" value="'.$rowData["RBH"].'"</div>
+            <div class="form-group"><button class="btn btn-info" type="submit" name="save_changes" role="button">Zapisz</button><a class="btn btn-light" role="button" style="margin-left: 10px;" href="details.php?id='.$rowData["pacjent_ID"].'">Wróć</a></div>
         </form>
     </div>
     <div class="footer-dark">
@@ -74,4 +89,10 @@ $rowData = $db->readOne($sanitizedID);
     <script src="assets/js/modal.js"></script>
 </body>
 
-</html>
+</html>';
+    }
+}
+?>
+
+
+            
